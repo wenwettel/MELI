@@ -6,6 +6,7 @@ import { ContainerResults } from "./styles";
 import { useSearchParams } from "react-router-dom";
 import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
 import { Link } from "react-router-dom";
+import { BASE_URL } from "../../../constants";
 
 function SearchResult() {
   let [searchParams, setSearchParams] = useSearchParams();
@@ -17,7 +18,7 @@ function SearchResult() {
     const getResultsItems = async () => {
       const paramSearch = searchParams.get("search");
       const response = await fetch(
-        `http://127.0.0.1:3001/api/items?q=${paramSearch}`
+        `${BASE_URL}/api/items?q=${paramSearch}`
       ).then((r) => r.json());
       setResults(response);
     };

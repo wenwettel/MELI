@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from "react";
 import { DetailStyle, DetailCard } from "./styles";
-import crayones from "../../assets/crayones.jpg";
 import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
 import { useParams } from 'react-router-dom';
+import { BASE_URL } from "../../../constants";
 
 
 function ProductDetail() {
+
   let { id } = useParams();
   const [itemDetails, setItemDetails] = useState(null)
   const item = itemDetails?.item
@@ -14,7 +15,7 @@ function ProductDetail() {
     const getItemDetails = async () => {
       
       const response = await fetch(
-        `http://127.0.0.1:3001/api/items/${id}`
+        `${BASE_URL}/api/items/${id}`
       ).then((r) => r.json());
       setItemDetails(response);
     };
