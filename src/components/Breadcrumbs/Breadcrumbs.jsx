@@ -1,11 +1,10 @@
 import React from "react";
-import { Container } from "./styles";
-import chevron from "../../assets/chevron-right.svg";
+import { BreadCrumbStyle } from "./styles";
 
 function Breadcrumbs({ categories }) {
   return (
-    <Container>
-      {categories?.map((category) => {
+    <BreadCrumbStyle>
+      {categories?.map((category, index) => {
         return (
           <>
             <p>{category}</p>
@@ -17,7 +16,7 @@ function Breadcrumbs({ categories }) {
           </>
         );
       })}
-    </Container>
+    </BreadCrumbStyle>
   );
 }
 

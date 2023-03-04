@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Container from '../Commons/Container'
 
 const Header = styled.header`
  background-color: #ffe600;
@@ -9,16 +10,14 @@ const Header = styled.header`
  padding: 10px;
 `
 
-const ContainerBox = styled.div`
+const BoxStyle = styled(Container)`
  display : flex;
  align-items: center;
  height: 46px;
- width: 100%;
- max-width: 1363px;
  position: relative;
 
  form{
-    border-radius: 2px 0 0 2px;
+    border-radius: 2px;
     height: 100%;
     width: 100%;
  }
@@ -33,7 +32,7 @@ const ContainerBox = styled.div`
     border: none;
     font-size: 18px;
     height: 100%;
-    border-radius: 2px 0 0 2px;
+    border-radius: 2px;
     padding:8px 15px;
     width: 100%;
     outline: none;
@@ -67,7 +66,7 @@ const ContainerBox = styled.div`
 
 
 export {
-ContainerBox,
+   BoxStyle,
 Header
 
 }

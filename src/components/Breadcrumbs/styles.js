@@ -1,12 +1,10 @@
 import styled from "styled-components";
+import Container from '../Commons/Container'
 
-const Container = styled.div`
+const BreadCrumbStyle = styled(Container)`
   display: flex;
   align-items: center;
-  width: 100%;
-  max-width: 1363px;
   padding: 16px 0;
-  margin: 0 auto;
 
   p {
     font-size: 14px;
@@ -19,4 +17,4 @@ const Container = styled.div`
     fill: #666666;
   }
 `;
-export { Container };
+export { BreadCrumbStyle };

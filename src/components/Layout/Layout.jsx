@@ -1,16 +1,16 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import SearchBox from "../SearchBox";
-import Container from "./styles";
+import ContainerAPP from "./styles";
 
 function Layout() {
  
   return (
     <>
       <SearchBox />
-      <Container>
+      <ContainerAPP>
         <Outlet />
-      </Container>
+      </ContainerAPP>
     </>
   );
 }

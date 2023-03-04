@@ -1,9 +1,7 @@
 import styled from "styled-components";
+import Container from "../Commons/Container";
 
-const DetailStyle = styled.div`
-width: 100%;
-margin: 0 auto;
-max-width: 1363px;
+const DetailStyle = styled(Container)`
 padding-top: 32px;
 background-color: white;
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import logo from "../../assets/Logo.png";
 import search from "../../assets/search.png";
-import { ContainerBox, Header } from "./BoxStyle";
+import { BoxStyle, Header } from "./BoxStyle";
 import { useNavigate } from "react-router-dom";
 
 function SearchBox() {
@@ -20,7 +20,7 @@ function SearchBox() {
 
   return (
     <Header>
-    <ContainerBox>
+    <BoxStyle>
       <img className="imgLogo" src={logo} alt="Logo de Mercado Libre" />
       <form onSubmit={handleSubmit}>
         <label className="labelSearch" htmlFor="search-input">Buscador</label>
@@ -37,7 +37,7 @@ function SearchBox() {
           <img className="imgSearch" src={search} alt="icono de busqueda" />
         </button>
       </form>
-    </ContainerBox>
+    </BoxStyle>
     </Header>
   );
 }

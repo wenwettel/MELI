@@ -1,12 +1,8 @@
 import styled from "styled-components";
+import Container from "../Commons/Container";
 
-const ContainerResults = styled.div`
-width: 100%;
-margin: 0 auto;
-max-width: 1363px;
+const ContainerResults = styled(Container)`
 background-color: white;
-
-
 `
 
 export{
