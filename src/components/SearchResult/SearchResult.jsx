@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import lapiz from "../../assets/lapiz.jpg";
-import utiles from "../../assets/utiles.jpg";
 import Card from "../Card";
 import { ContainerResults } from "./styles";
 import { useSearchParams } from "react-router-dom";
@@ -9,21 +7,21 @@ import { Link } from "react-router-dom";
 import { BASE_URL } from "../../../constants";
 
 function SearchResult() {
-  let [searchParams, setSearchParams] = useSearchParams();
+  let [searchParams] = useSearchParams();
   const [results, setResults] = useState(null);
+  const paramSearch = searchParams.get("search");
 
   useEffect(() => {
     const getResultsItems = async () => {
-      const paramSearch = searchParams.get("search");
+      
       const response = await fetch(
         `${BASE_URL}/api/items?q=${paramSearch}`
       ).then((r) => r.json());
       setResults(response);
     };
     getResultsItems();
-  }, []);
+  }, [paramSearch]);
 
-  //Falta formatear el precio
   return (
     <>
       <Breadcrumbs categories={results?.categories} />
@@ -35,7 +33,7 @@ function SearchResult() {
               <Card
                 title={item.title}
                 img={item.picture}
-                price={item.price.amount}
+                price={item.price}
                 freeShipping={item.free_shipping}
                 stateName={item.state_name}
               />

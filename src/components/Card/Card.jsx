@@ -1,24 +1,25 @@
 import React from "react";
-import { CardStyles,Line } from "./styles";
+import { CardStyles, Line } from "./styles";
 import iconCar from "../../assets/shipping.png";
-
-function Card({img, title, price, freeShipping, stateName}) {
-  
+import { formatNumberSeparator } from "../../utils";
+function Card({ img, title, price, freeShipping, stateName }) {
   return (
     <>
-    <CardStyles>
+      <CardStyles>
         <img className="img-product" src={img} alt="" />
-        <div >
+        <div>
           <div className="container-price">
-            <p className="price">$ {price}</p>
+            <p className="price">
+              $ {formatNumberSeparator(price?.amount)}
+              {price?.decimals && <span>{`${"," + price?.decimals}`}</span>}
+            </p>
             {freeShipping && <img src={iconCar} alt="icono de envio" />}
           </div>
           <h2 className="title">{title}</h2>
         </div>
-      <p className="ubication">{stateName}</p>
-      
-    </CardStyles>
-    <Line />
+        <p className="ubication">{stateName}</p>
+      </CardStyles>
+      <Line />
     </>
   );
 }
