@@ -12,8 +12,6 @@ function SearchResult() {
   let [searchParams, setSearchParams] = useSearchParams();
   const [results, setResults] = useState(null);
 
-  console.log(searchParams.get("search"));
-
   useEffect(() => {
     const getResultsItems = async () => {
       const paramSearch = searchParams.get("search");
@@ -33,14 +31,13 @@ function SearchResult() {
         {results?.items?.map((item) => {
          
           return (
-            <Link to={`/items/${item.id}`}>
+            <Link key={item.id} to={`/items/${item.id}`}>
               <Card
-                key={item.id}
                 title={item.title}
                 img={item.picture}
-                ubication="Capital Federal"
                 price={item.price.amount}
                 freeShipping={item.free_shipping}
+                stateName={item.state_name}
               />
             </Link>
           );

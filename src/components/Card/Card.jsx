@@ -2,7 +2,7 @@ import React from "react";
 import { CardStyles,Line } from "./styles";
 import iconCar from "../../assets/shipping.png";
 
-function Card({img, title, price, ubication, freeShipping}) {
+function Card({img, title, price, freeShipping, stateName}) {
   
   return (
     <>
@@ -15,7 +15,7 @@ function Card({img, title, price, ubication, freeShipping}) {
           </div>
           <h2 className="title">{title}</h2>
         </div>
-      <p className="ubication">{ubication}</p>
+      <p className="ubication">{stateName}</p>
       
     </CardStyles>
     <Line />

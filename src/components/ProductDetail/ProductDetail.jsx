@@ -22,6 +22,15 @@ function ProductDetail() {
     getItemDetails();
   },[])
 
+    let itemCondition = item?.condition;
+    switch (itemCondition) {
+      case "new": itemCondition = "Nuevo"
+      break;
+      case "used":itemCondition= "Usado"
+      break;
+      case "reconditioned" : itemCondition= "Reacondicionado"
+      break;
+    }
 
   return (
     <>
@@ -30,7 +39,7 @@ function ProductDetail() {
       <div className="container-detail">
       <img className="img-product" src={item?.picture} alt="" />
       <DetailCard>
-        <span className="condition">{`${item?.condition} - ${item?.sold_quantity} vendidos`}</span>
+        <span className="condition">{`${itemCondition} - ${item?.sold_quantity} vendidos`}</span>
         <h1 className="title">
           {item?.title}
         </h1>
