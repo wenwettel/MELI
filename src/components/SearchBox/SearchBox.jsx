@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import logo from "../../assets/Logo.png";
 import search from "../../assets/search.png";
-import { BoxStyle, Header } from "./BoxStyle";
+import { BoxStyle, Header } from "./style";
 import { useNavigate } from "react-router-dom";
 
 function SearchBox() {

@@ -2,6 +2,7 @@ import React from "react";
 import { CardStyles, Line } from "./styles";
 import iconCar from "../../assets/shipping.png";
 import { formatNumberSeparator } from "../../utils";
+
 function Card({ img, title, price, freeShipping, stateName }) {
   return (
     <>
