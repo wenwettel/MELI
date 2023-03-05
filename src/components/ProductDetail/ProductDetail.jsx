@@ -1,56 +1,52 @@
 import React, { useEffect, useState } from "react";
-import { DetailStyle, DetailCard } from "./styles";
+import { DetailStyle } from "./styles";
 import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
 import { useParams } from "react-router-dom";
-import { BASE_URL } from "../../../constants";
-import { formatNumberSeparator } from "../../utils";
+import { fetchItemById } from "../../services/items";
+import CardDetail from "../CardDetail/CardDetail";
+import Spinner from "../Commons/Spinner";
 
 function ProductDetail() {
   let { id } = useParams();
-  const [itemDetails, setItemDetails] = useState(null);
-  const item = itemDetails?.item;
+  const [itemDetails, setItemDetails] = useState({
+    data:null,
+    loading:false,
+    error:false
+  });
+  const item = itemDetails?.data?.item;
 
   useEffect(() => {
     const getItemDetails = async () => {
-      const response = await fetch(`${BASE_URL}/api/items/${id}`).then((r) =>
-        r.json()
-      );
-      setItemDetails(response);
+      setItemDetails({...itemDetails,loading:true});
+      try{
+        const resItem = await fetchItemById(id);
+        setItemDetails({...itemDetails, data: resItem?.data, loading:false});
+      }catch(err){
+        console.error(err)
+        setItemDetails({...itemDetails, error:true, loading:false});
+      }
+      
     };
     getItemDetails();
   }, [id]);
 
-  // pasar a func
-  let itemCondition = item?.condition;
-  switch (itemCondition) {
-    case "new":
-      itemCondition = "Nuevo";
-      break;
-    case "used":
-      itemCondition = "Usado";
-      break;
-    case "reconditioned":
-      itemCondition = "Reacondicionado";
-      break;
-  }
-
-  const price = item?.price?.amount;
+  if(itemDetails.loading) return <Spinner isLoading={itemDetails.loading}/>
+  
+  if(itemDetails.error || itemDetails?.data?.item?.length === 0) return <h1>Error</h1>
+ 
 
   return (
     <>
-      <Breadcrumbs categories={itemDetails?.categories} />
+      <Breadcrumbs categories={itemDetails?.data?.categories} />
       <DetailStyle>
         <div className="container-detail">
           <img className="img-product" src={item?.picture} alt="" />
-          <DetailCard>
-            <span className="condition">{`${itemCondition} - ${item?.sold_quantity} vendidos`}</span>
-            <h1 className="title">{item?.title}</h1>
-            <h2 className="price">
-               $ {formatNumberSeparator(price)}
-              {item?.price?.decimals && <span>{`${"," + item?.price?.decimals}`}</span>}
-            </h2>
-            <button className="buy-button">Comprar</button>
-          </DetailCard>
+          <CardDetail
+            title={item?.title}
+            price={item?.price}
+            condition={item?.condition}
+            soldQuantity={item?.sold_quantity}
+          />
         </div>
         <div className="container-description">
           <h3>Descripción del producto</h3>
