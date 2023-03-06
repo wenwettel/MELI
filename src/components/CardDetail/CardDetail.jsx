@@ -1,6 +1,7 @@
 import React from "react";
 import { formatNumberSeparator, translateItemCondition } from "../../utils";
 import { CardDetailStyle } from "./styles";
+import PropTypes from "prop-types";
 
 function CardDetail({ title, price, condition, soldQuantity }) {
   return (
@@ -17,5 +18,12 @@ function CardDetail({ title, price, condition, soldQuantity }) {
     </CardDetailStyle>
   );
 }
+
+CardDetail.propTypes = {
+  title: PropTypes.string,
+  price: PropTypes.objkect,
+  condition: PropTypes.string,
+  soldQuantity: PropTypes.number,
+};
 
 export default CardDetail;

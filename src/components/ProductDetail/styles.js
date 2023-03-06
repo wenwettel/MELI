@@ -40,6 +40,7 @@ const DetailStyle = styled(Container)`
     .container-description {
       width: 100%;
       padding: 0 20px;
+      margin-top: 10px;
     }
   }
 

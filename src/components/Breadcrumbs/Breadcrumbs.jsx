@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import { BreadCrumbStyle } from "./styles";
+import PropTypes from "prop-types";
 
 function Breadcrumbs({ categories }) {
   const categoryLength = categories?.length;
@@ -20,5 +21,9 @@ function Breadcrumbs({ categories }) {
     </BreadCrumbStyle>
   );
 }
+
+Breadcrumbs.propTypes = {
+  categories: PropTypes.array,
+};
 
 export default Breadcrumbs;

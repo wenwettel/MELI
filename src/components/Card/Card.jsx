@@ -2,6 +2,7 @@ import React from "react";
 import { CardStyles, Line } from "./styles";
 import iconCar from "../../assets/shipping.png";
 import { formatNumberSeparator } from "../../utils";
+import PropTypes from "prop-types";
 
 function Card({ img, title, price, freeShipping, stateName }) {
   return (
@@ -26,5 +27,13 @@ function Card({ img, title, price, freeShipping, stateName }) {
     </>
   );
 }
+
+Card.propTypes = {
+  img: PropTypes.string,
+  title: PropTypes.string,
+  price: PropTypes.object,
+  freeShipping: PropTypes.bool,
+  stateName: PropTypes.string,
+};
 
 export default Card;
