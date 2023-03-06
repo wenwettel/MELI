@@ -14,7 +14,8 @@ function SearchBox() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate(`/items?search=${value}`)
+    if(!value) return 
+      navigate(`/items?search=${value}`)
     
   };
 

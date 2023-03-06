@@ -3,8 +3,9 @@ import Container from '../Commons/Container'
 
 const BreadCrumbStyle = styled(Container)`
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  padding: 16px 0;
+  padding: 16px;
 
   p {
     font-size: 14px;

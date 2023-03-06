@@ -8,6 +8,7 @@ function Card({ img, title, price, freeShipping, stateName }) {
     <>
       <CardStyles>
         <img className="img-product" src={img} alt="" />
+        <div className="container-description">
         <div>
           <div className="container-price">
             <p className="price">
@@ -19,6 +20,7 @@ function Card({ img, title, price, freeShipping, stateName }) {
           <h2 className="title">{title}</h2>
         </div>
         <p className="ubication">{stateName}</p>
+        </div>
       </CardStyles>
       <Line />
     </>

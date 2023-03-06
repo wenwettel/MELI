@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { fetchItemById } from "../../services/items";
 import CardDetail from "../CardDetail/CardDetail";
 import Spinner from "../Commons/Spinner";
+import Error from '../Commons/Error'
 
 function ProductDetail() {
   let { id } = useParams();
@@ -32,7 +33,7 @@ function ProductDetail() {
 
   if(itemDetails.loading) return <Spinner isLoading={itemDetails.loading}/>
   
-  if(itemDetails.error || itemDetails?.data?.item?.length === 0) return <h1>Error</h1>
+  if(itemDetails.error || itemDetails?.data?.item?.length === 0) return <Error/>
  
 
   return (

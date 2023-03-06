@@ -6,9 +6,7 @@ import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
 import { Link } from "react-router-dom";
 import { fetchAllItems } from "../../services/items";
 import Spinner from "../Commons/Spinner";
-
-
-
+import Error from "../Commons/Error";
 
 function SearchResult() {
   let [searchParams] = useSearchParams();
@@ -33,11 +31,9 @@ function SearchResult() {
     getResultsItems();
   }, [paramSearch]);
 
-  if (results.loading) return <Spinner isLoading={results.loading}/>
-    
-  if (results.error) return <h1>Error</h1>;
-  if (results?.data?.items?.length === 0)
-    return <h1>No se encontraron resultados...</h1>;
+  if (results.loading) return <Spinner isLoading={results.loading} />;
+
+  if (results.error || results?.data?.items?.length === 0) return <Error />;
 
   return (
     <>
