@@ -13,19 +13,20 @@ function SearchResult() {
   const paramSearch = searchParams.get("search");
   const [results, setResults] = useState({
     data: null,
-    loading: false,
+    loading: true,
     error: false,
   });
 
+  const { items, categories } = results?.data || {};
+
   useEffect(() => {
     const getResultsItems = async () => {
-      setResults({ ...results, loading: true });
       try {
         const response = await fetchAllItems(paramSearch);
-        setResults({ ...results, data: response?.data, loading: false });
+        setResults({ data: response?.data, loading: false, error: false });
       } catch (err) {
         console.error(err);
-        setResults({ ...results, error: true, loading: false });
+        setResults({ error: true, loading: false, data: null });
       }
     };
     getResultsItems();
@@ -37,9 +38,9 @@ function SearchResult() {
 
   return (
     <>
-      <Breadcrumbs categories={results?.data?.categories} />
+      <Breadcrumbs categories={categories} />
       <ContainerResults>
-        {results?.data?.items?.map((item) => {
+        {items?.map((item) => {
           return (
             <Link key={item.id} to={`/items/${item.id}`}>
               <Card

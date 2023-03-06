@@ -14,31 +14,32 @@ function SearchBox() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(!value) return 
-      navigate(`/items?search=${value}`)
-    
+    if (!value) return;
+
+    navigate(`/items?search=${value}`);
   };
 
   return (
     <Header>
-    <BoxStyle>
-      <img className="imgLogo" src={logo} alt="Logo de Mercado Libre" />
-      <form onSubmit={handleSubmit}>
-        <label className="labelSearch" htmlFor="search-input">Buscador</label>
-        <input
-          className="inputSearch"
-          type="text"
-          value={value}
-          onChange={handleChangeInput}
-          placeholder="Nunca dejes de buscar"
-          id="search-input"
-          
-        />
-        <button className="button" type="submit">
-          <img className="imgSearch" src={search} alt="icono de busqueda" />
-        </button>
-      </form>
-    </BoxStyle>
+      <BoxStyle>
+        <img className="imgLogo" src={logo} alt="Logo de Mercado Libre" />
+        <form onSubmit={handleSubmit}>
+          <label className="labelSearch" htmlFor="search-input">
+            Buscador
+          </label>
+          <input
+            className="inputSearch"
+            type="text"
+            value={value}
+            onChange={handleChangeInput}
+            placeholder="Nunca dejes de buscar"
+            id="search-input"
+          />
+          <button className="button" type="submit">
+            <img className="imgSearch" src={search} alt="icono de busqueda" />
+          </button>
+        </form>
+      </BoxStyle>
     </Header>
   );
 }

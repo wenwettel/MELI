@@ -3,13 +3,12 @@ import SearchResult from "./components/SearchResult";
 import { Routes, Route, Link } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 
-
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Layout/>}>
-        <Route path="/items" element={<SearchResult/>}/>
-        <Route path="/items/:id"  element={<ProductDetail/>}/>
+      <Route path="/" element={<Layout />}>
+        <Route path="/items" element={<SearchResult />} />
+        <Route path="/items/:id" element={<ProductDetail />} />
       </Route>
     </Routes>
   );

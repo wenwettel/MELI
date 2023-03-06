@@ -1,57 +1,56 @@
-import styled from 'styled-components';
-import Container from '../Commons/Container'
+import styled from "styled-components";
+import Container from "../Commons/Container";
 
 const Header = styled.header`
- background-color: #ffe600;
- height: 72px;
- display: flex;
- justify-content: center;
- align-items: center;
- padding: 10px;
-`
+  background-color: #ffe600;
+  height: 72px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+`;
 
 const BoxStyle = styled(Container)`
- display : flex;
- align-items: center;
- height: 46px;
- position: relative;
+  display: flex;
+  align-items: center;
+  height: 46px;
+  position: relative;
 
- form{
+  form {
     border-radius: 2px;
     height: 100%;
     width: 100%;
- }
+  }
 
- .imgLogo{
+  .imgLogo {
     object-fit: cover;
     height: 100%;
     margin-right: 24px;
- }
+  }
 
- .inputSearch{
+  .inputSearch {
     border: none;
     font-size: 18px;
     height: 100%;
     border-radius: 2px;
-    padding:8px 15px;
+    padding: 8px 15px;
     width: 100%;
     outline: none;
-}
+  }
 
- .labelSearch{
+  .labelSearch {
     position: absolute;
     z-index: -2;
- }
+  }
 
- .imgSearch{
+  .imgSearch {
     object-fit: contain;
     width: 43px;
     height: 100%;
     padding: 10px;
-    
- }
- 
- .button{
+  }
+
+  .button {
     cursor: pointer;
     position: absolute;
     background-color: #eeeeee;
@@ -59,15 +58,7 @@ const BoxStyle = styled(Container)`
     height: 46px;
     width: 50px;
     right: 0px;
-    
- }
-`
+  }
+`;
 
-
-
-export {
-   BoxStyle,
-Header
-
-}
-
+export { BoxStyle, Header };

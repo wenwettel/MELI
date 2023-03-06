@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Container from '../Commons/Container'
+import Container from "../Commons/Container";
 
 const BreadCrumbStyle = styled(Container)`
   display: flex;

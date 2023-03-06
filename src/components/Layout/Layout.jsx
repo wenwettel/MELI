@@ -4,7 +4,6 @@ import SearchBox from "../SearchBox";
 import ContainerAPP from "./styles";
 
 function Layout() {
- 
   return (
     <>
       <SearchBox />

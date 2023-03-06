@@ -5,40 +5,38 @@ import { useParams } from "react-router-dom";
 import { fetchItemById } from "../../services/items";
 import CardDetail from "../CardDetail/CardDetail";
 import Spinner from "../Commons/Spinner";
-import Error from '../Commons/Error'
+import Error from "../Commons/Error";
 
 function ProductDetail() {
   let { id } = useParams();
   const [itemDetails, setItemDetails] = useState({
-    data:null,
-    loading:false,
-    error:false
+    data: null,
+    loading: true,
+    error: false,
   });
-  const item = itemDetails?.data?.item;
+  const { categories, item } = itemDetails?.data || {};
 
   useEffect(() => {
     const getItemDetails = async () => {
-      setItemDetails({...itemDetails,loading:true});
-      try{
+      try {
         const resItem = await fetchItemById(id);
-        setItemDetails({...itemDetails, data: resItem?.data, loading:false});
-      }catch(err){
-        console.error(err)
-        setItemDetails({...itemDetails, error:true, loading:false});
+        setItemDetails({ data: resItem?.data, loading: false, error: false });
+      } catch (err) {
+        console.error(err);
+        setItemDetails({ error: true, loading: false, data: null });
       }
-      
     };
     getItemDetails();
   }, [id]);
 
-  if(itemDetails.loading) return <Spinner isLoading={itemDetails.loading}/>
-  
-  if(itemDetails.error || itemDetails?.data?.item?.length === 0) return <Error/>
- 
+  if (itemDetails.loading) return <Spinner isLoading={itemDetails.loading} />;
+
+  if (itemDetails.error || itemDetails?.data?.item?.length === 0)
+    return <Error />;
 
   return (
     <>
-      <Breadcrumbs categories={itemDetails?.data?.categories} />
+      <Breadcrumbs categories={categories} />
       <DetailStyle>
         <div className="container-detail">
           <img className="img-product" src={item?.picture} alt="" />

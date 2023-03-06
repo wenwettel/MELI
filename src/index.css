@@ -1,7 +1,7 @@
 html {
   box-sizing: border-box;
   line-height: 26px;
-  font-family: "Proxima Nova",Arial,sans-serif,sans-serif;;
+  font-family: "Proxima Nova", Arial, sans-serif, sans-serif;
 }
 
 *,
@@ -15,11 +15,11 @@ html {
   padding: 0;
 }
 
-button{
+button {
   border: none;
 }
 
-a{
- text-decoration: none;
- color:black;
+a {
+  text-decoration: none;
+  color: black;
 }

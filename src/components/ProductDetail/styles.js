@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Container from "../Commons/Container";
-import size from '../../utils/breakpoints'
+import size from "../../utils/breakpoints";
 
 const DetailStyle = styled(Container)`
   padding-top: 32px;

@@ -1,5 +1,5 @@
 export const formatNumberSeparator = (number) => {
-  if(!number) return ''
+  if (!number) return "";
 
   const numberToString = number?.toString();
   if (numberToString?.length > 3) {
@@ -11,17 +11,17 @@ export const formatNumberSeparator = (number) => {
   return number;
 };
 
-export const translateItemCondition = (condition) =>{
-  if(!condition) return '';
+export const translateItemCondition = (condition) => {
+  if (!condition) return "";
 
   switch (condition) {
     case "new":
-      return  "Nuevo";
+      return "Nuevo";
     case "used":
-      return "Usado"; 
+      return "Usado";
     case "reconditioned":
       return "Reacondicionado";
-    default : return condition
+    default:
+      return condition;
   }
-  
-}
+};
